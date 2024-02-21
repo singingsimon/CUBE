@@ -1,0 +1,237 @@
+:root {
+	font-size: 16px;
+}
+* {
+	box-sizing: border-box;
+	font-family: proxima-nova, sans-serif;
+	margin: 0;
+	outline: 0;
+	padding: 0;
+	touch-action: manipulation;
+	-webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+html {
+	height: 100%;
+	overflow: hidden;
+	-webkit-tap-highlight-color: transparent;
+	width: 100%;
+}
+body {
+	display: flex;
+	height: 100%;
+	justify-content: center;
+	overflow: hidden;
+	width: 100%;
+	-webkit-touch-callout: none !important;
+}
+/* APPLICATION */
+#app-wrapper {
+	background-color: #CCCCCC;
+	height: 100%;
+	overflow: hidden;
+	position: relative;
+	width: 100%;
+}
+
+#app-wrapper[on-table] {
+	background-image: url(../assets/images/wood-seamless-pattern.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+/* GAME */
+#move-wrapper {
+	align-items: center;
+	display: flex;
+	height: 50px;
+	overflow: hidden;
+	justify-content: center;
+	position: absolute;
+	top: .5rem;
+	left: 0;
+	width: 100%;
+	z-index: 2;
+}
+#move {
+	font-family: 'Courier New', monospace;
+	font-size: 1.5rem;
+	font-weight: 700;
+	font-variant-numeric: tabular-nums;
+	position: relative;
+}
+#move:before {
+	content: 'Move:';
+	display: inline-block;
+}
+#move-counter {
+	display: inline-block;
+	font-family: 'Courier New', monospace;
+	font-size: 1.5rem;
+	font-weight: 900;
+	font-variant-numeric: tabular-nums;
+}
+#move-reset {
+	content: 'RESET';
+	display: inline-block;
+	left: calc(100% + 1rem);
+	position: absolute;
+	top: 0;
+	cursor: default;
+	font-family: 'Courier New', monospace;
+	font-size: .75rem;
+	font-weight: 900;
+	font-variant-numeric: tabular-nums;
+	height: 100%;
+	border-radius: 1rem;
+	Background: #FFFFFF;
+	color: #000000;
+	padding: 0 .5rem;
+	display: flex;
+	align-items: center;
+}
+/* #move-reset { */
+	/* content: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='utf-8'%3F%3E%3Csvg version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewBox='0 0 32.1 32' style='enable-background:new 0 0 32.1 32;' xml:space='preserve'%3E%3Cg%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M17,16l-6.6,6.7L9,21.2l6-6V10h2V16z M4,15h2v2H4H2c0.1,1.8,0.6,3.6,1.4,5.1l1.7-1l1,1.7l-1.7,1 c1,1.5,2.3,2.7,3.7,3.7l1-1.7l1.7,1l-1,1.7c1.6,0.8,3.3,1.2,5.1,1.4v-2h2v2v2c-0.3,0-0.7,0-1,0c-2.6,0-5-0.6-7.1-1.7l0,0L8.3,30 c-0.2-0.1-0.3-0.2-0.5-0.3l-0.6-0.4l0,0c-1.8-1.2-3.3-2.7-4.5-4.5l0,0l-0.4-0.6c-0.1-0.2-0.2-0.3-0.3-0.5l-0.3-0.6l0,0 C0.7,21.3,0.2,19.2,0,17h0v-2h0c0.1-2.2,0.7-4.3,1.6-6.1l0,0L2,8.3c0.1-0.2,0.2-0.3,0.3-0.5l0.4-0.6l0,0c1.2-1.8,2.7-3.3,4.5-4.5 l0,0l0.6-0.4C7.9,2.2,8.1,2.1,8.3,2l0.6-0.3l0,0C10.7,0.7,12.8,0.2,15,0v0h2v0c2.2,0.1,4.3,0.7,6.1,1.6l0,0L23.7,2 c0.2,0.1,0.3,0.2,0.5,0.3l0.6,0.4l0,0c1.8,1.2,3.3,2.7,4.5,4.5l0,0l0.4,0.6c0.1,0.2,0.2,0.3,0.3,0.5l0.3,0.6l0,0 c0.9,1.9,1.5,3.9,1.6,6.1h0v2h-4v-2h2c-0.1-1.8-0.6-3.6-1.4-5.1l-1.7,1l-1-1.7l1.7-1c-1-1.5-2.3-2.7-3.7-3.7l-1,1.7l-1.7-1l1-1.7 C20.6,2.6,18.8,2.2,17,2v2h-2V2c-1.8,0.1-3.6,0.6-5.1,1.4l1,1.7l-1.7,1l-1-1.7c-1.5,1-2.7,2.3-3.7,3.7l1.7,1l-1,1.7l-1.7-1 C2.6,11.4,2.2,13.2,2,15H4z'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M28.9,21.8l1-1.8c1.3,1.3,2.2,3.1,2.2,5.1c0,3.9-3.2,7-7.1,7h-3.4l2.5-4.3l1.7,1L25,30c2.7,0,5.1-2.2,5.1-5 C30.1,23.8,29.6,22.6,28.9,21.8z M21.4,28.5l-1,1.8C18.9,29,18,27.1,18,25c0-3.9,3.1-7,7-7h2h1.5L26,22.4l-1.7-1l0.8-1.4H25 c-2.8,0-5,2.2-5,5C20,26.4,20.6,27.6,21.4,28.5z'/%3E%3C/g%3E%3C/svg%3E%0A"); */
+	/* border-radius: 50%; */
+	/* background: rgba(255,255,255,.5); */
+	/* padding: 3px; */
+/* } */
+
+#card-wrapper {
+	align-items: center;
+	display: flex;
+	height: 100%;
+	overflow: hidden;
+	justify-content: center;
+	padding: 0 1rem;
+	perspective: 2000px;
+	position: relative;
+	transition: transform 1s;
+	transform-style: preserve-3d;
+	width: 100%;
+}
+
+#card {
+	align-items: center;
+	display: flex;
+	justify-content: center;
+	max-width: 450px;
+	/* overflow: hidden; */
+	position: relative;
+	transition: transform 1s;
+	transform-style: preserve-3d;
+	width: 100%;
+}
+#card.flip-right {
+	transform: rotateY(180deg);
+}
+#card.flip-right .front.card {
+	pointer-events: none;
+}
+.card {
+	-webkit-backface-visibility: hidden;
+	backface-visibility: hidden;
+	background-color: #FFFFFF;
+	border-radius: .75rem;
+	box-shadow: 0 0 .25rem .25rem rgba(0,0,0,0.1);
+	/* height: 100%; */
+	display: flex;
+	flex-direction: column;
+	/* padding: 1rem; */
+	position: absolute;
+	width: 100%;
+}
+.card:after {
+	content: '';
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	width: calc(100% - 8px);
+	height: calc(100% - 8px);
+	border: solid 4px black;
+	border-radius: .75rem;
+}
+.card img {
+	border-radius: .75rem;
+}
+#card-wrapper[black-background] #card .card {
+	background-color: #000000;
+}
+.card.back {
+	transform: rotateY(180deg);
+	z-index: 1;
+}
+
+#card-wrapper[black-background] .square.selected:after {
+	border: solid 3px #FFFFFF;
+}
+
+
+#rotate-counterclockwise.rotate-button {
+	margin-right: 4rem;
+}
+#rotate-clockwise.rotate-button {
+	margin-left: 4rem;
+}
+.rotate-button {
+	align-items: center;
+	background: #000000;
+	border-radius: 50%;
+	display: flex;
+	height: 50px;
+	justify-content: center;
+	min-height: 50px;
+	min-width: 50px;
+	width: 50px;
+}
+
+.rotate-button img {
+	width: 70%;
+	height: 70%;
+}
+
+.hidden { display: none !important; }
+.uninteractive { 
+	pointer-events: none;
+	opacity: 0;
+	visibility: hidden;
+}
+
+@media only screen and (max-width: 2000px) {
+	#rotate-counterclockwise.rotate-button {
+		margin-right: 8rem;
+	}
+	#rotate-clockwise.rotate-button {
+		margin-left: 8rem;
+	}
+.rotate-button {
+		height: 75px;
+		min-height: 75px;
+		min-width: 75px;
+		width: 75px;
+	}
+}
+
+@media only screen and (max-width: 800px) {
+	#rotate-counterclockwise.rotate-button {
+		margin-right: 7rem;
+	}
+	#rotate-clockwise.rotate-button {
+		margin-left: 7rem;
+	}
+	.rotate-button {
+		height: 50px;
+		min-height: 50px;
+		min-width: 50px;
+		width: 50px;
+	}
+}
+
+@media only screen and (max-width: 600px) {
+  .rotate-button, #move {
+	  display: none !important;
+  }
+}
